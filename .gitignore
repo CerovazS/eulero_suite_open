@@ -1,0 +1,27 @@
+# ─────────── Cartelle o file da NON caricare ───────────
+
+# ambiente virtuale
+.venv/
+
+# impostazioni IDE
+.idea/
+
+# cache Python
+__pycache__/
+*.pyc
+
+.DS_Store
+.vscode/settings.json
+.vscode/launch.json
+.wandb/
+.lightning_logs/
+.lightning_profiler/
+checkpoints/
+ICML_2026/
+outputs/
+.outputs/
+runs/
+.github/
+runs/
+trim_jamendo.py
+scripts/
