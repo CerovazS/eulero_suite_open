@@ -1,6 +1,6 @@
-# 🎧 EulerAudioBackbone
+# 🎧 Eulero Open Suite
 
-EulerAudioBackbone is a complex-valued autoencoder designed for generative modeling directly on STFT spectrograms. It supports research on neural audio coding, diffusion-ready VAEs, and source separation while preserving analyticity throughout the pipeline.
+Eulero Open Suite is an open source suite for training real valued and complex valued autoencoders It supports research on neural audio coding, diffusion-ready-VAE.
 
 > [!WARNING]
 > This library is just born, I haven't even started writing the full documentation, and it has plenty of bugs; please wait until it's stable.
@@ -106,7 +106,7 @@ real/imaginary channel pairs. Set it explicitly to reflect the dataset output
 representation.
 
 Therefore, the model configuration must specify `channels` (decoder) and
-`input_size` (encoder) explicitly, or rely on the `auto` placeholder.
+`input_size` (encoder) explicitly.
 
 When you implement a new autoencoder, prefer subclassing the base classes in
 [ar_spectra/models/autoencoders/abstract_ae.py](ar_spectra/models/autoencoders/abstract_ae.py)
@@ -114,13 +114,9 @@ so the constructor signatures remain aligned with the expected `input_size`,
 `channels`, and `is_complex` parameters, avoiding accidental mismatches at
 training time.
 
-- **Using `auto` (Recommended for Training)**: The trainer inspects the dataset
-  batch (checking for complex dtype or CAC layout) and automatically injects
-  the correct channel counts into the model configuration before instantiation.
-  This ensures the model matches the data representation (e.g., complex vs.
-  real-as-channels) and channel count (mono vs. stereo). 
-- **Using Explicit Values**: If you manually set these integers in the YAML,
-  you must ensure they strictly match the dataset output. Mismatches (e.g.,
+- 
+- **Using Explicit Values**: 
+  You must ensure channels params strictly match the dataset output. Mismatches (e.g.,
   configuring 2 channels for a mono dataset) will cause runtime errors.
 - **Example of `auto` working**: if the dataset has CAC activated and stereo there is going to be an `input_size` of 4. 
 
