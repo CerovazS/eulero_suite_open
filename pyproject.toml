@@ -23,6 +23,8 @@ dependencies = [
     "frechet-audio-distance>=0.1.2",
     "deepspeed>=0.18.2",
     "mutagen>=1.47.0",
+    "complextorch>=1.2.0",
+    "complexpytorch>=0.4",
 ]
 
 [tool.uv.sources]
